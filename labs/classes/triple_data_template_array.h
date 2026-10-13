@@ -17,7 +17,7 @@ class TripleDataArray
     std::vector<T> data_vec;
 
 public:
-    TripleDataArray();
+    TripleDataArray() = default;
     TripleDataArray(std::vector<T> data_init) : data_vec(std::move(data_init)) {}
 
     void update_data(std::vector<T> data_update) { data_vec = std::move(data_update); }
