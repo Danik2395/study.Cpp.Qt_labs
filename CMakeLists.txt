@@ -31,12 +31,14 @@ set(SOURCES
     labs/Lab4Widget.h
     labs/Lab5Widget.h
     labs/Lab7Widget.h
+    labs/Lab8Widget.h
     ui/Lab2Widget.ui
     ui/Lab3Widget_panel.ui
     ui/Lab3Widget_show.ui
     ui/Lab4Widget.ui
     ui/Lab5Widget.ui
     ui/Lab7Widget.ui
+    ui/Lab8Widget.ui
     ui/res.qrc
     labs/classes/Call.h
     labs/classes/Call.cpp
@@ -44,6 +46,7 @@ set(SOURCES
     labs/classes/Report.h
     labs/classes/triple_data_template_array.h
     labs/classes/TripleDataValidators.h
+    labs/classes/Patrol.h
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})

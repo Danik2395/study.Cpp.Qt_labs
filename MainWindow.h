@@ -19,6 +19,7 @@
 #include "labs/Lab4Widget.h"
 #include "labs/Lab5Widget.h"
 #include "labs/Lab7Widget.h"
+#include "labs/Lab8Widget.h"
 
 #define PINNED_TAB_INDEX 0
 #define MAX_BUTTON_SIZE 100, 100
@@ -63,6 +64,7 @@ public:
             make_button_conf<Lab4Widget>   ("Lab 4", parent),
             make_button_conf<Lab5Widget>   ("Lab 5", parent),
             make_button_conf<Lab7Widget>   ("Lab 7", parent),
+            make_button_conf<Lab8Widget>   ("Lab 8", parent),
         };
 
         for (const auto& btn_conf : buttons_conf)
@@ -105,6 +107,19 @@ public:
                                 {
                                     tab_widget->removeTab(lab7_tab_idx);
                                     lab7->deleteLater();
+                                }
+                                });
+                    }
+
+                    // Lab8Widget closes its tab on ESC (emits close_requested)
+                    if (auto* lab8 = dynamic_cast<Lab8Widget*>(new_lab))
+                    {
+                        connect(lab8, &Lab8Widget::close_requested, this, [this, lab8](){
+                                int lab8_tab_idx = tab_widget->indexOf(lab8);
+                                if (lab8_tab_idx != -1)
+                                {
+                                    tab_widget->removeTab(lab8_tab_idx);
+                                    lab8->deleteLater();
                                 }
                                 });
                     }
